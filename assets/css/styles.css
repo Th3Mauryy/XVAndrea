@@ -8,6 +8,11 @@ body {
     overflow-x: hidden; /* Evitar scroll horizontal */
 }
 
+/* Evitar el recuadro azul/gris al presionar botones en celulares */
+button, a {
+    -webkit-tap-highlight-color: transparent !important;
+}
+
 .font-script { 
     font-family: var(--font-script); 
 }
