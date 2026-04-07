@@ -75,11 +75,13 @@ playBtn.addEventListener("click", () => {
         playIcon.classList.remove("fa-pause");
         playIcon.classList.add("fa-play");
         playIcon.classList.add("ml-1"); // Ajuste óptico
+        playBtn.classList.remove("music-playing"); // Quitar onda de sonido
     } else {
         audio.play();
         playIcon.classList.remove("fa-play");
         playIcon.classList.remove("ml-1");
         playIcon.classList.add("fa-pause");
+        playBtn.classList.add("music-playing"); // Agregar onda de sonido
     }
     isPlaying = !isPlaying;
 });
@@ -92,6 +94,8 @@ const restartSong = () => {
         playIcon.classList.remove("fa-play");
         playIcon.classList.remove("ml-1");
         playIcon.classList.add("fa-pause");
+        playBtn.classList.remove("animate-pulse");
+        playBtn.classList.add("music-playing");
         isPlaying = true;
     }
 };
