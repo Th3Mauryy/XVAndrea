@@ -8,10 +8,13 @@
     <meta name="description" content="Estás invitado a celebrar los XV Años de Lisi. Conoce la fecha, lugar y confirma tu asistencia.">
     <meta property="og:title" content="Mis XV Años - Lisi">
     <meta property="og:description" content="Acompáñame en este día tan especial.">
-    <!-- Nota: Cambia 'https://tudominio.com' por el enlace real que te dé Vercel/Netlify en el futuro -->
-    <meta property="og:image" content="https://tudominio.com/assets/img/photo-hero.webp"> 
+    <!-- Meta tag con el enlace real de Vercel para la imagen compartida -->
+    <meta property="og:image" content="https://xv-andrea.vercel.app/assets/img/photo-hero.webp"> 
 
     <title>Mis XV Años - Lisi</title>
+    
+    <!-- Favicon (Corona) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👑</text></svg>">
     
     <!-- Tailwind CSS (Vía CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -76,7 +79,7 @@
             <!-- Controles de música -->
             <div class="flex justify-center items-center gap-8 text-blue-300">
                 <button id="prevBtn" aria-label="Reiniciar canción" class="hover:text-blue-500 transition"><i class="fas fa-backward-step text-lg" aria-hidden="true"></i></button>
-                <button id="playBtn" aria-label="Reproducir o pausar música" class="w-14 h-14 bg-blue-300 text-white rounded-full flex justify-center items-center hover:bg-blue-400 transition shadow-lg">
+                <button id="playBtn" aria-label="Reproducir o pausar música" class="w-14 h-14 bg-blue-300 text-white rounded-full flex justify-center items-center hover:bg-blue-400 transition shadow-lg relative animate-pulse">
                     <i id="playIcon" class="fas fa-play ml-1 text-lg" aria-hidden="true"></i>
                 </button>
                 <button id="nextBtn" aria-label="Reiniciar canción" class="hover:text-blue-500 transition"><i class="fas fa-forward-step text-lg" aria-hidden="true"></i></button>
@@ -112,6 +115,13 @@
                 </div>
                 
                 <div>26</div><div>27</div><div>28</div><div>29</div><div>30</div><div></div><div></div>
+            </div>
+
+            <!-- Botón Agregar a Calendario -->
+            <div class="mt-8 flex justify-center">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+-+Lisi&dates=20260425T240000Z/20260426T080000Z&details=Te+espero+para+celebrar+este+d%C3%ADa+tan+especial+conmigo.&location=Parroquia+San+Francisco+de+As%C3%ADs+Almoloyan" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-blue-50 text-blue-500 border border-blue-200 px-5 py-2.5 rounded-full text-xs font-bold shadow-sm hover:bg-blue-100 hover:text-blue-600 transition">
+                    <i class="far fa-calendar-plus text-base"></i> Agendar en mi calendario
+                </a>
             </div>
         </div>
     </section>

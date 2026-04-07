@@ -67,6 +67,9 @@ const nextBtn = document.getElementById("nextBtn");
 let isPlaying = false;
 
 playBtn.addEventListener("click", () => {
+    // Quitar la animación de latido inicial si la tiene
+    playBtn.classList.remove("animate-pulse");
+
     if (isPlaying) {
         audio.pause();
         playIcon.classList.remove("fa-pause");
