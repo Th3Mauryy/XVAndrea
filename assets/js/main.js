@@ -1,8 +1,14 @@
+// --- 0. FORZAR INICIO DESDE ARRIBA AL RECARGAR ---
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 // --- 1. CONFIGURACIÓN DEL CONTADOR REGRESIVO ---
 
 // Fecha de los XV Años (Año, Mes (0-indexado), Día, Horas, Minutos, Segundos)
-// Septiembre = indice 8. Usando 2026 para este ejemplo práctico.
-const targetDate = new Date(2026, 8, 13, 17, 0, 0).getTime();
+// Abril = indice 3. Usando 2026 para el evento (25 de abril).
+const targetDate = new Date(2026, 3, 25, 18, 0, 0).getTime();
 
 const updateCountdown = setInterval(function() {
     const now = new Date().getTime();
@@ -56,6 +62,8 @@ document.querySelectorAll(".fade-in-up").forEach((section) => {
 const audio = document.getElementById("bgMusic");
 const playBtn = document.getElementById("playBtn");
 const playIcon = document.getElementById("playIcon");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
 let isPlaying = false;
 
 playBtn.addEventListener("click", () => {
@@ -72,3 +80,18 @@ playBtn.addEventListener("click", () => {
     }
     isPlaying = !isPlaying;
 });
+
+// Botones para reiniciar la canción
+const restartSong = () => {
+    audio.currentTime = 0;
+    if (!isPlaying) {
+        audio.play();
+        playIcon.classList.remove("fa-play");
+        playIcon.classList.remove("ml-1");
+        playIcon.classList.add("fa-pause");
+        isPlaying = true;
+    }
+};
+
+prevBtn.addEventListener("click", restartSong);
+nextBtn.addEventListener("click", restartSong);
