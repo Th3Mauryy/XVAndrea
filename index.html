@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Meta tags para compartir en WhatsApp/Redes -->
+    <meta name="description" content="Estás invitado a celebrar los XV Años de Yeimy. Conoce la fecha, lugar y confirma tu asistencia.">
+    <meta property="og:title" content="Mis XV Años - Yeimy">
+    <meta property="og:description" content="Acompáñame en este día tan especial.">
+    <!-- Nota: Cambia 'https://tudominio.com' por el enlace real que te dé Vercel/Netlify en el futuro -->
+    <meta property="og:image" content="https://tudominio.com/assets/img/photo-hero.jpeg"> 
+
+    <title>Mis XV Años - Yeimy</title>
+    
+    <!-- Tailwind CSS (Vía CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración extra de colores en Tailwind -->
+    <script src="./assets/js/tailwind-config.js"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 'Great Vibes' para nombres/títulos y 'Playfair Display' para cuerpo -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome (Íconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos Personalizados y Animaciones -->
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body class="bg-blue-50 text-gray-800 antialiased selection:bg-blue-200">
+
+    <!-- HERO SECTION -->
+    <section class="relative h-screen flex flex-col justify-end items-center pb-24 text-center overflow-hidden">
+        <!-- Imagen de Fondo Principal -->
+        <div class="absolute inset-0 z-0">
+            <img src="./assets/img/photo-hero.jpeg" 
+                 alt="Yeimy Quinceañera" 
+                 class="w-full h-full object-cover">
+            <!-- Degradado para legibilidad del texto -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+        </div>
+        
+        <!-- Texto Principal -->
+        <div class="relative z-10 text-white px-4 fade-in-up">
+            <h1 class="font-script text-7xl md:text-9xl mb-1 text-blue-100 drop-shadow-lg">Yeimy</h1>
+            <h2 class="text-xl md:text-2xl tracking-[0.2em] uppercase mb-4 text-blue-50 font-bold drop-shadow-md border-b border-blue-300 pb-2 inline-block">Mis XV Años</h2>
+            <p class="text-lg md:text-xl font-light tracking-widest drop-shadow-md">13 SEPTIEMBRE 2025</p>
+        </div>
+    </section>
+
+    <!-- PADRES Y PADRINOS -->
+    <section class="py-16 px-6 bg-white text-center">
+        <div class="max-w-md mx-auto fade-in-up">
+            <p class="text-xs font-semibold tracking-[0.15em] text-blue-400 mb-4 uppercase">En compañía de mis padres</p>
+            <h3 class="font-script text-4xl text-blue-800 mb-2">Roberto Sánchez</h3>
+            <h3 class="font-script text-4xl text-blue-800 mb-6">María de los Ángeles</h3>
+            
+            <div class="border-t border-blue-200 w-24 mx-auto my-8"></div>
+            
+            <p class="text-xs font-semibold tracking-[0.15em] text-blue-400 mb-4 uppercase">Y mis padrinos de XV</p>
+            <h3 class="font-script text-4xl text-blue-800 mb-2">Carlos Mendoza</h3>
+            <h3 class="font-script text-4xl text-blue-800">Lucía Fernández</h3>
+        </div>
+    </section>
+
+    <!-- REPRODUCTOR DE MÚSICA -->
+    <section class="py-12 px-6 bg-blue-50 text-center">
+        <div class="max-w-sm mx-auto bg-white p-6 rounded-[2rem] shadow-sm border border-blue-100 fade-in-up">
+            <p class="text-[10px] sm:text-xs tracking-wider text-blue-400 uppercase mb-3 font-semibold">Dale play a mi canción favorita</p>
+            <p class="text-lg text-gray-700 mb-4 italic">"Once Upon a Dream"</p>
+            
+            <!-- Controles falsos de música -->
+            <div class="flex justify-center items-center gap-8 text-blue-300">
+                <button aria-label="Canción anterior" class="hover:text-blue-500 transition"><i class="fas fa-backward-step text-lg" aria-hidden="true"></i></button>
+                <button id="playBtn" aria-label="Reproducir o pausar música" class="w-14 h-14 bg-blue-300 text-white rounded-full flex justify-center items-center hover:bg-blue-400 transition shadow-lg">
+                    <i id="playIcon" class="fas fa-play ml-1 text-lg" aria-hidden="true"></i>
+                </button>
+                <button aria-label="Siguiente canción" class="hover:text-blue-500 transition"><i class="fas fa-forward-step text-lg" aria-hidden="true"></i></button>
+            </div>
+            
+            <!-- Etiqueta de Audio (Oculta) -->
+            <audio id="bgMusic" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+        </div>
+    </section>
+
+    <!-- CALENDARIO -->
+    <section class="py-16 px-6 bg-white text-center">
+        <div class="max-w-sm mx-auto fade-in-up">
+            <h2 class="text-xl md:text-2xl font-bold tracking-[0.2em] text-blue-800 uppercase mb-8 pb-4 border-b border-blue-100 inline-block">Septiembre</h2>
+            
+            <div class="grid grid-cols-7 gap-y-4 gap-x-2 text-sm text-gray-500 mb-4">
+                <div class="font-bold text-blue-400">D</div><div>L</div><div>M</div><div>M</div><div>J</div><div>V</div><div>S</div>
+                
+                <!-- Días vacíos de inicio de mes de ejemplo -->
+                <div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+                <div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div>
+                
+                <!-- Día Seleccionado (13) -->
+                <div class="relative flex justify-center items-center group cursor-pointer">
+                    <span class="absolute w-8 h-8 bg-blue-400 text-white rounded-full shadow-md z-0 transform group-hover:scale-110 transition"></span>
+                    <i class="fas fa-heart absolute text-blue-500 opacity-20 text-3xl z-0"></i>
+                    <span class="relative z-10 font-bold text-white">13</span>
+                </div>
+                
+                <div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div>
+                <div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div>
+                <div>27</div><div>28</div><div>29</div><div>30</div><div></div><div></div><div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENSAJE PERSONAL -->
+    <section class="py-16 px-6 bg-white text-center flex justify-center">
+        <div class="max-w-md w-full bg-blue-100/50 p-8 rounded-3xl shadow-lg border-2 border-dashed border-blue-200 relative fade-in-up">
+            <i class="fas fa-quote-left text-3xl text-blue-300 absolute -top-4 -left-2 bg-white rounded-full p-2"></i>
+            <p class="text-gray-700 leading-relaxed italic z-10 relative mt-2 text-sm md:text-base">
+                "Hay momentos inolvidables que se atesoran en el corazón para siempre. Hoy quiero compartir la alegría de mis XV años con las personas que más quiero..."
+            </p>
+            <p class="font-script text-4xl text-blue-600 mt-6 z-10 relative">Gracias por acompañarme</p>
+        </div>
+    </section>
+
+    <!-- CONTADOR REGRESIVO -->
+    <section class="py-16 px-4 bg-blue-50 flex flex-col items-center justify-center border-t border-blue-100">
+        <div class="fade-in-up text-center">
+            <h2 class="font-script text-5xl text-blue-700 mb-8 drop-shadow-sm">Tan solo faltan</h2>
+            
+            <div class="flex flex-row justify-center gap-3 sm:gap-6">
+                <!-- Días -->
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white flex items-center justify-center rounded-2xl shadow-md border-b-4 border-blue-200 text-2xl sm:text-3xl font-bold text-blue-800">
+                        <span id="days">00</span>
+                    </div>
+                    <span class="text-[10px] sm:text-xs font-bold uppercase mt-3 text-blue-400 tracking-wider">Días</span>
+                </div>
+                <!-- Horas -->
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white flex items-center justify-center rounded-2xl shadow-md border-b-4 border-blue-200 text-2xl sm:text-3xl font-bold text-blue-800">
+                        <span id="hours">00</span>
+                    </div>
+                    <span class="text-[10px] sm:text-xs font-bold uppercase mt-3 text-blue-400 tracking-wider">Horas</span>
+                </div>
+                <!-- Min -->
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white flex items-center justify-center rounded-2xl shadow-md border-b-4 border-blue-200 text-2xl sm:text-3xl font-bold text-blue-800">
+                        <span id="minutes">00</span>
+                    </div>
+                    <span class="text-[10px] sm:text-xs font-bold uppercase mt-3 text-blue-400 tracking-wider">Min</span>
+                </div>
+                <!-- Seg -->
+                <div class="flex flex-col items-center">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 bg-white flex items-center justify-center rounded-2xl shadow-md border-b-4 border-blue-200 text-2xl sm:text-3xl font-bold text-blue-800">
+                        <span id="seconds">00</span>
+                    </div>
+                    <span class="text-[10px] sm:text-xs font-bold uppercase mt-3 text-blue-400 tracking-wider">Seg</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERÍA (POLAROIDS) -->
+    <section class="py-20 px-6 bg-white overflow-hidden flex flex-col items-center">
+        <h2 class="font-script text-5xl text-blue-800 mb-10 fade-in-up">Mis Recuerdos</h2>
+        <div class="max-w-3xl w-full relative min-h-[400px] flex flex-row justify-center items-center gap-4 sm:gap-8 fade-in-up flex-wrap">
+            <!-- Foto 1 -->
+            <div class="bg-white p-3 sm:p-4 pb-12 sm:pb-16 shadow-xl rounded z-10 border border-gray-100 transform transition hover:scale-105 hover:z-30 hover:-rotate-2 rotate-2 w-[160px] sm:w-[220px]">
+                <img src="./assets/img/photo-gallery1.jpeg" 
+                     alt="Galería 1" 
+                     class="w-full h-40 sm:h-56 object-cover rounded-sm">
+            </div>
+            <!-- Foto 2 (Centro) -->
+            <div class="bg-white p-3 sm:p-4 pb-12 sm:pb-16 shadow-xl rounded z-20 border border-gray-100 transform transition hover:scale-105 hover:z-30 -rotate-3 w-[160px] sm:w-[220px] relative -top-6">
+                <img src="./assets/img/photo-hero.jpeg" 
+                     alt="Galería 2" 
+                     class="w-full h-40 sm:h-56 object-cover rounded-sm">
+            </div>
+            <!-- Foto 3 -->
+            <div class="bg-white p-3 sm:p-4 pb-12 sm:pb-16 shadow-xl rounded z-10 border border-gray-100 transform transition hover:scale-105 hover:z-30 rotate-3 w-[160px] sm:w-[220px]">
+                <img src="./assets/img/photo-footer.jpeg" 
+                     alt="Galería 3" 
+                     class="w-full h-40 sm:h-56 object-cover rounded-sm">
+            </div>
+        </div>
+    </section>
+
+    <!-- CUÁNDO Y DÓNDE -->
+    <section class="py-16 px-6 bg-blue-50 text-center">
+        <div class="fade-in-up">
+            <h2 class="font-script text-5xl text-blue-800 mb-10">Cuándo y Dónde</h2>
+            
+            <div class="max-w-md mx-auto space-y-8">
+                <!-- Tarjeta Misa -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-md border-t-4 border-blue-300">
+                    <i class="fas fa-church text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 uppercase tracking-[0.15em] border-b border-blue-100 inline-block pb-1">Misa</h3>
+                    <p class="text-gray-600 mt-2">Parroquia de San Miguel Arcángel</p>
+                    <p class="text-blue-600 font-bold mt-2 text-xl">17:00 HRS</p>
+                    <p class="text-xs text-gray-500 mt-1 mb-6">Av. Principal #123, Centro Histórico</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Parroquia+de+San+Miguel+Arcángel" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-400 text-white px-8 py-3 rounded-full text-sm font-bold shadow hover:bg-blue-500 hover:shadow-lg transition">VER UBICACIÓN</a>
+                </div>
+
+                <!-- Tarjeta Fiesta -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl shadow-md border-t-4 border-blue-300">
+                    <i class="fas fa-glass-cheers text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-gray-800 mb-2 uppercase tracking-[0.15em] border-b border-blue-100 inline-block pb-1">Fiesta</h3>
+                    <p class="text-gray-600 mt-2">Salón de Eventos "El Ensueño"</p>
+                    <p class="text-blue-600 font-bold mt-2 text-xl">19:30 HRS</p>
+                    <p class="text-xs text-gray-500 mt-1 mb-6">Blvd. Las Rosas #456, Col. Jardines</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Salon+de+Eventos+El+Ensueño" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-400 text-white px-8 py-3 rounded-full text-sm font-bold shadow hover:bg-blue-500 hover:shadow-lg transition">VER UBICACIÓN</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DRESS CODE Y REGALOS -->
+    <section class="py-16 px-6 bg-white border-t border-blue-50 text-center">
+        <div class="max-w-md mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 fade-in-up">
+            
+            <!-- Dress Code -->
+            <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-blue-50">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow text-blue-400">
+                    <i class="fas fa-user-tie text-2xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-800 uppercase tracking-widest text-sm mb-2">Código de Vestimenta</h4>
+                <p class="font-script text-4xl text-blue-600 mt-1">Formal</p>
+            </div>
+            
+            <!-- Regalos -->
+            <div class="flex flex-col items-center justify-center p-6 rounded-2xl bg-blue-50">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow text-blue-400">
+                    <i class="fas fa-envelope-open-text text-2xl"></i>
+                </div>
+                <h4 class="font-bold text-gray-800 uppercase tracking-widest text-sm mb-2">Mesa de Regalos</h4>
+                <p class="text-gray-600 mb-2 text-sm italic">Tu presencia es mi mejor regalo, pero si gustas...</p>
+                <p class="font-bold text-blue-600 text-sm bg-white px-4 py-2 rounded-full shadow-sm">Lluvia de Sobres</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / RSVP -->
+    <section class="relative py-24 px-6 text-center overflow-hidden flex flex-col items-center justify-center">
+        <!-- Imagen de fondo oscura -->
+        <div class="absolute inset-0 z-0">
+             <img src="./assets/img/photo-footer.jpeg" 
+                  alt="Fondo Confirmación" class="w-full h-full object-cover blur-[2px]">
+             <div class="absolute inset-0 bg-gray-900/70"></div>
+        </div>
+        
+        <!-- Contenido -->
+        <div class="relative z-10 fade-in-up w-full max-w-sm">
+            <h2 class="font-script text-5xl text-white mb-8 drop-shadow-md">Confirma tu asistencia</h2>
+            <a href="https://wa.me/523123108241?text=Hola,%20confirmo%20mi%20asistencia%20para%20el%20evento%20de%20los%20XV%20Años" target="_blank" rel="noopener noreferrer" class="inline-flex w-full md:w-auto items-center justify-center gap-3 bg-green-500 text-white sm:px-8 py-4 rounded-full text-lg font-bold shadow-xl hover:bg-green-600 transition transform hover:-translate-y-1">
+                <i class="fab fa-whatsapp text-2xl"></i> Confirmar por WhatsApp
+            </a>
+            <p class="mt-10 text-blue-100/70 text-sm tracking-wider uppercase border-t border-blue-100/30 pt-4">
+                ¡Espero contar con tu presencia!
+            </p>
+        </div>
+    </section>
+
+    <!-- ======= SCRIPTS ======= -->
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
+
+
+
